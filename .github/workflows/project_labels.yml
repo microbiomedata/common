@@ -13,14 +13,14 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v2
 
-    - name: Set up GitHub CLI
-      uses: cli/cli@v2
-      with:
-        version: latest
+    #- name: Set up GitHub CLI
+   #   uses: cli/cli@v2
+    #  with:
+     #   version: latest
 
     - name: Add issue to project if labeled
       if: |
-        contains(fromJson('["metap_v2.1"]'),github.event.issue.labels.*.name)
+        contains(fromJson('["metap"]'),github.event.issue.labels.*.name)
       run: |
         echo "Adding issue #${{ github.event.issue.number }} to the project board"
         
