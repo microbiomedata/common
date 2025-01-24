@@ -20,7 +20,7 @@ jobs:
 
     - name: Add issue to project if labeled
       if: |
-        contains(fromJson('["metap"]'),github.event.issue.labels.*.name)
+        contains(github.event.issue.labels.*.name, 'metap')
       run: |
         echo "Adding issue #${{ github.event.issue.number }} to the project board"
         
